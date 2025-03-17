@@ -16,8 +16,8 @@ faz: ele percorre cada elemento de uma lista (ou array) até encontrar o que est
 ![Linear-search-algorithm-2.webp](..%2F..%2F..%2F..%2F..%2FAppData%2FLocal%2FTemp%2FLinear-search-algorithm-2.webp)
 ![Linear-search-algorithm-3.webp](..%2F..%2F..%2F..%2F..%2FAppData%2FLocal%2FTemp%2FLinear-search-algorithm-3.webp)
 
-Abaixo está a implementação do algoritmo de busca linear utilizando a linguagem Java com base nesse exemplo mostrado
-acima:
+**Abaixo está a implementação do algoritmo de busca linear utilizando a linguagem Java com base nesse exemplo mostrado
+acima:**
 
 ## Exemplo em Java
 
@@ -156,6 +156,318 @@ busca binária, por exemplo, é mais adequada para dados ordenados, pois tem uma
 O algoritmo de busca linear pode ser usado em cenários como busca por um valor específico em uma lista telefônica, busca
 por um nome em uma lista não ordenada de contatos ou busca por um item em uma lista de compras. Ele é frequentemente
 usado em cenários onde o tamanho dos dados é pequeno ou não se espera que cresça significativamente.
+
+## Melhorando a Técnica de Busca Linear
+
+O objetivo é que se o mesmo elemento for pesquisado novamente, a operação deve levar menos tempo. Portanto, em tal caso,
+a Busca Linear pode ser melhorada usando os dois métodos a seguir:
+
+- Transposition(Transposição)
+- Move to Front(Mover para a frente)
+
+### Transposition (Transposição):
+
+Na transposição, se o elemento-chave for encontrado, ele é trocado para o elemento um índice antes de aumentar o número
+de contagens de pesquisa para uma chave específica; a operação de pesquisa também otimiza e continua movendo o elemento
+para o início da matriz, onde a complexidade do tempo de pesquisa seria de tempo constante.
+
+**Por exemplo:** se o `array[]` for `{2, 5, 7, 1, 6, 4, 5, 8, 3, 7}` e a **chave a ser pesquisada for 4**, abaixo estão
+os passos:
+
+- Após procurar pela chave 4 , o elemento é encontrado no índice 5 do array fornecido após 6 comparações. Agora, após a
+  transposição, o array se torna {2, 5, 7, 1, 4, 6, 5, 8, 3, 7}, ou seja, a chave com valor 4 vem no índice 4.
+- Novamente após procurar pela chave 4 , o elemento é encontrado no índice 4 do array fornecido após 6 comparações.
+  Agora, após a transposição, o array se torna {2, 5, 7, 4, 1, 6, 5, 8, 3, 7}, ou seja, a chave com valor 4 vem no
+  índice 3.
+- O processo acima continuará até que qualquer chave chegue à frente do array se o elemento a ser encontrado não estiver
+  no primeiro índice.
+
+**Abaixo está a implementação do algoritmo acima discutido:**
+
+```Java
+
+// Java program for transposition
+// to improve the Linear Search 
+// Algorithm
+class GFG {
+
+    // Structure of the 
+// array
+    static class Array {
+        int[] A = new int[10];
+        int size;
+        int length;
+
+        Array(int[] A, int size,
+              int length) {
+            this.A = A;
+            this.size = size;
+            this.length = length;
+        }
+    }
+
+    ;
+
+    // Function to print the 
+// array element
+    static void Display(Array arr) {
+        int i;
+
+// Traverse the array arr[]
+        for (i = 0; i < arr.length; i++) {
+            System.out.printf("%d ",
+                    arr.A[i]);
+        }
+        System.out.printf("\n");
+    }
+
+    // Function that performs the Linear
+// Search Transposition
+    static int LinearSearchTransposition(Array arr,
+                                         int key) {
+        int i;
+
+// Traverse the array
+        for (i = 0; i < arr.length; i++) {
+            // If key is found, then swap
+            // the element with it's
+            // previous index
+            if (key == arr.A[i]) {
+                // If key is first element
+                if (i == 0)
+                    return i;
+                int temp = arr.A[i];
+                arr.A[i] = arr.A[i - 1];
+                arr.A[i - 1] = temp;
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    // Driver Code
+    public static void main(String[] args) {
+// Given array arr[]
+        int tempArr[] = {2, 23, 14, 5,
+                6, 9, 8, 12};
+        Array arr = new Array(tempArr,
+                10, 8);
+
+        System.out.printf("Elements before Linear" +
+                " Search Transposition: ");
+
+// Function Call for displaying
+// the array arr[]
+        Display(arr);
+
+// Function Call for transposition
+        LinearSearchTransposition(arr, 14);
+
+        System.out.printf("Elements after Linear" +
+                " Search Transposition: ");
+
+// Function Call for displaying
+// the array arr[]
+        Display(arr);
+    }
+}
+
+// This code is contributed by Princi Singh
+```
+
+### OUTPUT
+
+- `Elements before Linear Search Transposition:  2 23 14 5 6 9 8 12`
+- `Elements after Linear Search Transposition:  2 14 23 5 6 9 8 12`
+
+## Move to Front/Head (Mover para Frente):
+
+Neste método, se o elemento-chave for encontrado, ele será trocado diretamente pelo índice 0 , de modo que na próxima
+vez consecutiva, a operação de busca pelo mesmo elemento-chave será de O(1) , ou seja, tempo constante.
+
+Por exemplo: se o array arr[] for {2, 5, 7, 1, 6, 4, 5, 8, 3, 7} e a chave a ser pesquisada for 4, abaixo estão os
+passos:
+
+Após procurar pela chave 4 , o elemento é encontrado no índice 5 do array fornecido após 6 comparações. Agora, após
+passar para a operação frontal, o array se torna {4, 2, 5, 7, 1, 6, 5, 8, 3, 7}, ou seja, a chave com valor 4 vem no
+índice 0 .
+Novamente, após procurar pela chave 4 , o elemento é encontrado no índice 0 do array fornecido, o que reduz o espaço de
+busca inteiro.
+
+**Abaixo está a implementação do algoritmo acima discutido:**
+
+```Java
+
+// Java program for transposition
+// to improve the Linear Search 
+// Algorithm
+class GFG {
+
+    // Structure of the 
+// array
+    static class Array {
+        int[] A = new int[10];
+        int size;
+        int length;
+
+        Array(int[] A, int size,
+              int length) {
+            this.A = A;
+            this.size = size;
+            this.length = length;
+        }
+    }
+
+    ;
+
+    // Function to print the 
+// array element
+    static void Display(Array arr) {
+        int i;
+
+// Traverse the array arr[]
+        for (i = 0; i < arr.length; i++) {
+            System.out.printf("%d ",
+                    arr.A[i]);
+        }
+        System.out.printf("\n");
+    }
+
+    // Function that performs the Linear
+// Search Transposition
+    static int LinearSearchTransposition(Array arr,
+                                         int key) {
+        int i;
+
+// Traverse the array
+        for (i = 0; i < arr.length; i++) {
+            // If key is found, then swap
+            // the element with it's
+            // previous index
+            if (key == arr.A[i]) {
+                // If key is first element
+                if (i == 0)
+                    return i;
+                int temp = arr.A[i];
+                arr.A[i] = arr.A[i - 1];
+                arr.A[i - 1] = temp;
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    // Driver Code
+    public static void main(String[] args) {
+// Given array arr[]
+        int tempArr[] = {2, 23, 14, 5,
+                6, 9, 8, 12};
+        Array arr = new Array(tempArr,
+                10, 8);
+
+        System.out.printf("Elements before Linear" +
+                " Search Transposition: ");
+
+// Function Call for displaying
+// the array arr[]
+        Display(arr);
+
+// Function Call for transposition
+        LinearSearchTransposition(arr, 14);
+
+        System.out.printf("Elements after Linear" +
+                " Search Transposition: ");
+
+// Function Call for displaying
+// the array arr[]
+        Display(arr);
+    }
+}
+
+// This code is contributed by Princi Singh
+```
+
+### OUTPUT
+
+- `Elements before Linear Search Move To Front:  2 23 14 5 6 9 8 12`
+- `Elements after Linear Search Move To Front:  14 23 2 5 6 9 8 12`
+
+## Usando Hash Tables
+
+Se a lista for grande e precisarmos realizar buscas frequentes, podemos criar uma tabela hash que mapeia cada elemento
+para sua posição na lista. Dessa forma, podemos encontrar a posição de um elemento em tempo constante procurando seu
+valor na tabela hash.
+
+**Abaixo está a implementação do algoritmo acima discutido:**
+
+```Java
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.ArrayList;
+
+class Gfg {
+    static int linearSearchWithHashTable(ArrayList<Integer> arr, int target) {
+        // Create a hash table to map each element to its position
+        Map<Integer, Integer> hashTable = new HashMap<Integer, Integer>();
+        for (int i = 0; i < arr.size(); i++) {
+            hashTable.put(arr.get(i), i);
+        }
+
+        // Search for the target element in the hash table
+        if (hashTable.containsKey(target)) {
+            return hashTable.get(target);
+        } else {
+            return -1;
+        }
+    }
+
+    public static void main(String[] args) {
+        ArrayList<Integer> arr = new ArrayList<Integer>();
+        arr.add(1);
+        arr.add(5);
+        arr.add(3);
+        arr.add(9);
+        arr.add(2);
+        arr.add(7);
+        int target = 9;
+
+        int index = linearSearchWithHashTable(arr, target);
+        if (index != -1) {
+            System.out.println("Found " + target + " at index " + index);
+        } else {
+            System.out.println(target + " not found in the list");
+        }
+    }
+}
+```
+
+### OUTPUT
+
+`Encontrado 9 no índice 3`
+
+### Explicação do código:
+
+1. **Método** `linearSearchWithHashTable`:
+
+- Ele recebe uma `ArrayList<Integer>` e um inteiro `target` como entrada.
+- Um `HashMap` (`hashTable`) é criado, onde as chaves são os elementos do array e os valores são os índices desses
+  elementos.
+- O método percorre a lista (`arr`) e adiciona cada elemento e seu índice ao hash map.
+- Depois de construir o hash map, o método verifica se o `target` é uma chave no hash map. Se encontrado, ele retorna o
+  índice do `target`; caso contrário, retorna -1.
+
+2. **Método** `main`:
+- Inicializa uma `ArrayList` com alguns elementos inteiros.
+- Define um valor `target` para procurar.
+- Chama o método `linearSearchWithHashTable` para encontrar o índice do `target`.
+- Imprime o resultado, seja o índice do alvo ou uma mensagem indicando que não foi encontrado.
+
+### Resumo
+
+O uso do `HashMap` é vantajoso quando você precisa realizar várias buscas em uma lista grande ou quando a lista é
+imutável ou raramente muda. A tabela hash permite que você armazene os dados de forma a tornar as buscas muito mais
+rápidas após a fase inicial de construção.
 
 ## Conclusão
 
