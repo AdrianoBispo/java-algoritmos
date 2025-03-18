@@ -78,10 +78,10 @@ class GFG {
 ### Vejamos um exemplo para comparar os dois:
 
 **Busca linear para encontrar o elemento “J” em uma lista ordenada dada de AX**
-![Linear.png](..%2F..%2F..%2F..%2F..%2FAppData%2FLocal%2FTemp%2FLinear.png)
+![Linear.png](https://media.geeksforgeeks.org/wp-content/uploads/Linear.png)
 
 **Pesquisa binária para encontrar o elemento “J” em uma lista ordenada dada de AX**
-![binary-3.png](..%2F..%2F..%2F..%2F..%2FAppData%2FLocal%2FTemp%2Fbinary-3.png)
+![binary-3.png](https://media.geeksforgeeks.org/wp-content/uploads/binary-3.png)
 
 <h2 id="interpolacao-vs-binaria">Algoritmo de Busca de Interpolação vs Algoritmo de Busca Binária</h2>
 
