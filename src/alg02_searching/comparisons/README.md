@@ -7,8 +7,8 @@
 <h2 id="linear-vs-binaria">Algoritmo de Busca Linear vs Algoritmo de Busca Binária</h2>
 
 **Pré-requisito:**
-- [Busca Linear](../busca-linear)
-- [Busca Binária](../busca-binaria)
+- [Busca Linear](../linear_search)
+- [Busca Binária](../binary_search)
 
 ### Busca Linear
 Suponha que o item esteja em um array em ordem aleatória e temos que encontrar um item. Então a única maneira de

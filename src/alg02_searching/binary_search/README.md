@@ -1,15 +1,14 @@
 ![binnary-search-.webp](https://media.geeksforgeeks.org/wp-content/uploads/20240506155201/binnary-search-.webp)
 
-O Algoritmo de Busca Binária é um algoritmo de busca usado em uma matriz ordenada dividindo repetidamente o intervalo de
-busca pela metade . A ideia da busca binária é usar a informação de que a matriz é ordenada e reduzir a complexidade de
-tempo para O(log N).
-
-## O que é o algoritmo de busca binária?
-
 A busca binária é um algoritmo de busca usado para encontrar a posição de um valor alvo dentro de uma matriz ordenada .
 Ele funciona dividindo repetidamente o intervalo de busca pela metade até que o valor alvo seja encontrado ou o
 intervalo esteja vazio. O intervalo de busca é dividido pela metade comparando o elemento alvo com o valor do meio do
 espaço de busca.
+
+## Variações do Algoritmo de Busca Linear
+- [Meta Busca Binária]()
+- [Busca Binária Unilateral]()
+- [Busca Binária Onipresente]()
 
 ## Condições para aplicar o Algoritmo de Busca Binária em uma Estrutura de Dados
 

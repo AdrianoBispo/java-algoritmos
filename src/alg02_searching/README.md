@@ -6,24 +6,28 @@ encontrar as informações desejadas, tornando-os fundamentais em várias aplica
 busca na web e muito mais.
 
 ## Noções Básicas:
-- [Busca Linear](./busca-linear)
-- [Busca Binária](./busca-binaria)
-- [Técnica de Dois Ponteiros](./busca-dois-ponteiros)
+- [Busca Linear](./linear_search)
+- [Busca Binária](./binary_search)
+- [Técnica de Dois Ponteiros](./two_pointers_technique)
 
-## Mais algoritmos de Busca
-- [Busca Linear Sentinel]()
-- [Meta Busca Binária | Busca Binária Unilateral]()
-- [Busca Ternária]()
-- [Pesquisa de Interpolação]()
-- [Busca Exponencial]()
-- [Pesquisa de Fibonacci]()
-- [A busca binária onipresente]()
+## Principais Algoritmos de Busca
+- [Busca Linear](./linear_search)
+- [Busca Binária](./binary_search)
+- [Algoritmo de Busca por Hash (Hash Search)](./hash_search)
+- [Algoritmo de Busca em Largura (BFS - Breadth-First Search)](./breadth_first_search)
+- [Algoritmo de Busca em Profundidade (DFS - Depth-First Search)](./depth_first_search)
+
+## Mais Algoritmos de Busca
+- [Algoritmo de Busca Ternária](./ternary_search)
+- [Algoritmo de Busca de Interpolação](./interpolation_search)
+- [Algoritmo de Busca Exponencial](./exponential_search)
+- [Algoritmo de Busca de Fibonacci](./fibonacci_search)
 
 ## Comparações entre Diferentes Algoritmos de Busca
-- [Pesquisa Linear vs Pesquisa Binária](./comparacoes/README.md)
-- [Pesquisa de interpolação vs pesquisa binária](./comparacoes/README.md)
-- [Por que a Busca Binária é preferível à Busca Ternária?](./comparacoes/README.md)
-- [A Busca Linear do Sentinel é melhor que a Busca Linear normal?](./comparacoes/README.md)
+- [Pesquisa Linear vs Pesquisa Binária](./comparisons/README.md)
+- [Pesquisa de interpolação vs pesquisa binária](./comparisons/README.md)
+- [Por que a Busca Binária é preferível à Busca Ternária?](./comparisons/README.md)
+- [A Busca Linear do Sentinel é melhor que a Busca Linear normal?](./comparisons/README.md)
 
 ## Desafios
 
@@ -64,7 +68,7 @@ busca na web e muito mais.
 * Busca Binária por Racionais
 * Elemento ausente no AP
 
-### Problemas Difíceis
+### Desafios Difíceis
 * Mediana de duas matrizes ordenadas
 * Mediana de dois tamanhos diferentes
 * Pesquisar em uma matriz quase ordenada
